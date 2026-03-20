@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | ImageUploader{% endblock %}
+
+{% block content %}
+    <h2>Welcome {{ user.username|default:"Guest" }}</h2>
+    <p>Here are your images:</p>
+    <div>
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="Image" style="height: 200px;">
+        {% empty %}
+            <p>No images to display.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

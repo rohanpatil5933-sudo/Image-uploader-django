@@ -1,0 +1,378 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ImageUploader{% endblock %}</title>
+    <link rel="icon" href="{% static 'images/ImageUploaderLogo.png' %}">
+
+    <style>
+        /* ======== Base Reset ======== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #c8e6c9);
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        /* ======== Navbar ======== */
+        .navbar {
+            background-color: #1e1e2f;
+            padding: 15px 0;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 120px;
+            width: 100px;
+            object-fit: contain;
+        }
+
+        .app-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: #f0f0f0;
+            font-weight: 500;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .nav-links li a:hover {
+            background-color: #2f2f4f;
+        }
+
+ /* ======== Main Content ======== */
+.main-content {
+    flex: 1;
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: all 0.3s ease-in-out;
+}
+
+.main-content h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #1e1e2f;
+    font-weight: 700;
+}
+
+.main-content p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #555;
+}
+
+.main-content section {
+    margin-top: 40px;
+}
+
+.main-content section h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #00796b;
+    text-align: center;
+}
+
+.main-content ul {
+    padding-left: 30px;
+    font-size: 16px;
+    color: #444;
+}
+
+.main-content ul li {
+    margin-bottom: 12px;
+    list-style-type: disc;
+}
+
+.welcome-section {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+.welcome-section:hover {
+    transform: translateY(-5px);
+}
+
+.welcome-section h1 {
+    font-size: 38px;
+    color: #004d40;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.welcome-section p {
+    font-size: 20px;
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ======== Sample Images Section ======== */
+.main-content .sample-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.main-content .sample-images img {
+    width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.main-content .sample-images img:hover {
+    transform: scale(1.05);
+}
+
+.thank-you-banner {
+    background: linear-gradient(90deg, #00796b, #004d40);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 0;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.how-it-works {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.how-it-works:hover {
+    transform: translateY(-5px);
+}
+
+.how-it-works h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00796b;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.how-it-works ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.how-it-works ul li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 12px 18px;
+    border-left: 4px solid #00796b;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+}
+
+.how-it-works ul li:hover {
+    background-color: #e0f2f1;
+}
+
+.how-it-works ul li::before {
+    content: "✅";
+    font-size: 18px;
+    color: #00796b;
+}
+
+        /* ======== Footer ======== */
+        footer {
+            background-color: #1e1e2f;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ======== Upload Button ======== */
+        .upload-btn {
+            display: inline-block;
+            background-color: #00796b;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #004d40;
+        }
+
+        /* ======== Image Grid ======== */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .image-card {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .image-title {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'images/ImageUploaderLogo.png' %}" alt="App Logo" class="logo-img">
+                <h1 class="app-name">ImageUploader</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">🏠 Home</a></li>
+                    <li><a href="{% url 'gallery' %}">📁 Gallery</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'upload_image' %}">📤 Upload</a></li>
+                        <li>👤 {{ user.username }}</li>
+                        <li><a onclick="handleLogout()">🚪 Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">🔐 Login</a></li>
+                        <li><a href="{% url 'register' %}">📝 Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hidden Logout Form -->
+    <form id="logout-form" method="POST" action="{% url 'logout' %}" style="display: none;">
+        {% csrf_token %}
+    </form>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}
+        <div class="welcome-section">
+            <h1>Welcome to ImageUploader</h1>
+            <p>This platform allows you to upload, view, and manage your images easily.</p>
+        </div>
+        <marquee behavior="scroll" direction="left" scrollamount="6" class="thank-you-banner">
+            🙏 Thank you for visiting our page 🙏
+        </marquee>        
+        <section class="how-it-works">
+            <h2>How it works</h2>
+            <ul>
+                <li>Click on "Upload New Image"</li>
+                <li>Fill out the form with the image and title</li>
+                <li>View your uploaded images in the gallery</li>
+            </ul>
+        </section>        
+    
+        <section>
+            <h2>Recent Uploads</h2>
+            <div class="sample-images">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/049/861/018/small_2x/sunlight-filtering-through-a-verdant-forest-photo.jpeg" alt="Sample 1">
+                <img src="https://t4.ftcdn.net/jpg/03/21/49/17/360_F_321491746_tJimdq0ZS7F6wGKpaGOeL7EQjcdlaeqK.jpg" alt="Sample 2">
+                <img src="https://media.istockphoto.com/id/1170916882/photo/woman-taking-picture-outdoors.jpg?s=612x612&w=0&k=20&c=C09Dk9DoDjVLR60Ztt-Jd9tyOdMo9p8WOIWUaVnfSrk=" alt="Sample 3">
+            </div>
+        </section>
+        
+        {% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ImageUploader App | Developed by NV Polytechnic Students</p>
+    </footer>
+
+    <script>
+        function handleLogout() {
+            document.getElementById('logout-form').submit();
+        }
+    </script>
+
+</body>
+</html>

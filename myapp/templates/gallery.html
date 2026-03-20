@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - ImageUploader{% endblock %}
+
+{% block content %}
+<style>
+    .gallery-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 images in a row */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .gallery-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-image:hover {
+        transform: scale(1.05);
+    }
+
+    .image-caption {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
+        text-align: center;
+    }
+
+    .gallery-heading {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 26px;
+        color: #1e1e2f;
+    }
+
+    @media (max-width: 768px) {
+        .gallery-wrapper {
+            grid-template-columns: repeat(2, 1fr); /* 2 per row on tablet */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gallery-wrapper {
+            grid-template-columns: 1fr; /* 1 per row on mobile */
+        }
+    }
+</style>
+
+<h2 class="gallery-heading">📷 Explore Uploaded Images</h2>
+
+<div class="gallery-wrapper">
+    <div class="gallery-item">
+        <img src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=" class="gallery-image" alt="Nature">
+        <h4 class="image-caption">Nature</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://www.theforage.com/blog/wp-content/uploads/2022/09/tech-companies.jpg" class="gallery-image" alt="Tech">
+        <h4 class="image-caption">Tech</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://media.istockphoto.com/id/1170916882/photo/woman-taking-picture-outdoors.jpg?s=612x612&w=0&k=20&c=C09Dk9DoDjVLR60Ztt-Jd9tyOdMo9p8WOIWUaVnfSrk=" class="gallery-image" alt="Photography">
+        <h4 class="image-caption">Photography</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://media.istockphoto.com/id/182493016/photo/sky-and-grass-backround.jpg?s=612x612&w=0&k=20&c=u9Hk93MPbXqjOTTEFNGMq7JJJ46HDBlnqiG7dvrbu9w=" class="gallery-image" alt="Sky">
+        <h4 class="image-caption">Sky</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/011/215/319/small_2x/planet-earth-with-sunrise-in-space-photo.jpg" class="gallery-image" alt="Space">
+        <h4 class="image-caption">Space</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://thumbs.dreamstime.com/b/celebrate-world-water-day-clean-drop-fresh-blue-ripples-saving-environment-embracing-ecology-featuring-nasa-349203350.jpg" class="gallery-image" alt="Water">
+        <h4 class="image-caption">Water</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://thumbs.dreamstime.com/b/beautiful-mountain-landscape-valley-stormy-clean-river-terskol-view-glacier-semerka-caucasus-elbrus-region-344831347.jpg" class="gallery-image" alt="Mountain">
+        <h4 class="image-caption">Mountain</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://t4.ftcdn.net/jpg/03/21/49/17/360_F_321491746_tJimdq0ZS7F6wGKpaGOeL7EQjcdlaeqK.jpg" class="gallery-image" alt="City">
+        <h4 class="image-caption">City</h4>
+    </div>
+    <div class="gallery-item">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/049/861/018/small_2x/sunlight-filtering-through-a-verdant-forest-photo.jpeg" class="gallery-image" alt="Forest">
+        <h4 class="image-caption">Forest</h4>
+    </div>
+</div>
+{% endblock %}

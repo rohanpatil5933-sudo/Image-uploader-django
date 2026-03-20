@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Logged Out - ImageUploader{% endblock %}
+
+{% block content %}
+    <div style="text-align: center; padding: 50px;">
+        <h2>👋 You have been logged out successfully!</h2>
+        <p>Thank you for using <strong>ImageUploader</strong>.</p>
+        <p>
+            <a href="{% url 'login' %}" style="color: #007bff;">🔐 Login Again</a> |
+            <a href="/" style="color: #28a745;">🏠 Go to Home</a>
+        </p>
+    </div>
+{% endblock %}
+<!
