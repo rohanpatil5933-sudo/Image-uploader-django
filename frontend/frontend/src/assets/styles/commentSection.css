@@ -1,0 +1,129 @@
+.comment-section {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Keeps comment input at the top */
+.comment-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s ease;
+    font-size: 14px;
+}
+
+.comment-input input:focus {
+    border-color: #007bff;
+}
+
+.comment-input button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: bold;
+}
+
+.comment-input button:hover {
+    background: #0056b3;
+}
+
+/* Ensures comments list stays below the input */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Individual comment styling */
+.comment {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.comment:hover {
+    transform: scale(1.02);
+}
+
+.comment-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.comment-actions .liked {
+    color: #ff4d4d;
+}
+
+.comment-actions .unliked {
+    color: #555;
+}
+
+.comment-actions .liked:hover {
+    color: #ff0000;
+}
+
+.comment-actions .unliked:hover {
+    color: #000;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .comment-section {
+        background: #1e1e1e;
+        color: #fff;
+    }
+
+    .comment {
+        background: #2a2a2a;
+    }
+
+    .comment-input input {
+        background: #333;
+        color: #fff;
+        border-color: #444;
+    }
+
+    .comment-input button {
+        background: #0a84ff;
+    }
+
+    .comment-actions .unliked {
+        color: #bbb;
+    }
+}

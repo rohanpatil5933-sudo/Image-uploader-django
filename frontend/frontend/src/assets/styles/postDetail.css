@@ -1,0 +1,29 @@
+.post-detail-container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.post-detail-container h2 {
+    margin-bottom: 10px;
+}
+
+.post-detail-container .post-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.post-detail-container p {
+    font-size: 18px;
+    color: #333;
+}
+
+.post-actions {
+    margin-top: 20px;
+}

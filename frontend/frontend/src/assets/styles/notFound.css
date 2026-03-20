@@ -1,0 +1,26 @@
+.not-found-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.not-found-container h1 {
+    font-size: 100px;
+    color: #e74c3c;
+}
+
+.not-found-container p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.home-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-button:hover {
+    background-color: #2980b9;
+}

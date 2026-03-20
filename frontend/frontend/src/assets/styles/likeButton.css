@@ -1,0 +1,16 @@
+.like-button {
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.liked {
+    color: red;
+    font-weight: bold;
+}
+
+.unliked {
+    color: gray;
+}

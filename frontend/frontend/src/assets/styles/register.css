@@ -1,0 +1,71 @@
+/* Register Component Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.auth-container {
+    width: 100%;
+    max-width: 350px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+.auth-container input:focus {
+    border-color: #0095f6;
+}
+
+.auth-container button {
+    background: #0095f6;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease-in-out;
+}
+
+.auth-container button:hover {
+    background: #0077e6;
+}
+
+.auth-container .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.auth-container p {
+    font-size: 14px;
+    color: #8e8e8e;
+    margin-top: 10px;
+}
+
+.auth-container p a {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-container p a:hover {
+    text-decoration: underline;
+}
